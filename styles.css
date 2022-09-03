@@ -7,14 +7,41 @@
   box-sizing: border-box;
 }
 
+header, 
+footer{
+  margin: 2rem 0;
+  padding: 1rem;
+}
+
+
 
 /* CLASS SELECTORS */
 .pixels{
   background-color: white;
   border: 1px solid #ccc;
 }
+.title,
+.copyright{
+  display: block;
+  text-align: center;
+}
 
 /* ID SELECTORS */
+
+#etch-a-sketch{
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+#controls{
+  width: 150px;
+  height: 500px;
+  border: 2.5px solid black;
+}
+
+
 #canvas{
  display: inline-grid;
  grid-template-columns: repeat(16, 2fr);
