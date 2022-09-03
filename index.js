@@ -9,10 +9,16 @@ createGrid = () => {  //Default is 16x16
   }
 };
 
-const pixels = document.querySelector("div"); //Draws on canvas
+const pixels = document.querySelector("div#canvas"); //Draws on canvas
 pixels.addEventListener("mouseover", (event) =>{
   event.target.classList.replace("pixels", "color");
 });
+
+let reset = document.querySelector("#reset");
+reset.addEventListener("click", () => {
+  canvas.innerHTML="";
+  createGrid();
+})
 
 
 
