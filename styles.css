@@ -20,6 +20,12 @@ footer{
   background-color: white;
   border: 1px solid #ccc;
 }
+
+.color{
+  background-color: black;
+  border: 1px solid #ccc;
+}
+
 .title,
 .copyright{
   display: block;
