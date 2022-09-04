@@ -71,7 +71,7 @@ rainbow.addEventListener("click", () => {
   //Eraser Button
   eraser.addEventListener("click", () => {
     canvas.addEventListener("mouseover", (event) => {
-      event.target.removeAttribute("style");
+      event.target.style.removeProperty("background-color");
     })
   })
 
