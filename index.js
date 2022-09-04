@@ -3,6 +3,7 @@ const canvas = document.querySelector("#canvas");
 let gridSize = document.querySelector("#gridSize");
 let reset = document.querySelector("#reset");
 let gridInfo = document.querySelector(".gridInfo");
+let black = document.querySelector(".black")
 let colorPick = document.querySelector(".color-pick");
 let rainbow = document.querySelector(".rainbow");
 
@@ -43,6 +44,21 @@ canvas.addEventListener("mouseover", (event) => {
   }
 });
 
+//Black Button
+black.addEventListener("click", ()=> {
+  if (black.value == "on") {
+    black.value = "off";
+  } else {
+    black.value = "on";
+    rainbow.value = "off";
+    canvas.addEventListener("mouseover", (event) => {
+      event.target.style.backgroundColor = "black";
+    })
+  }
+})
+
+
+//Random Color Geneator - for Rainbow Button
 randomColor = () => {
   let rainbow = Math.floor(Math.random() * 16777215).toString(16);
   return `#${rainbow}`;
@@ -54,6 +70,7 @@ rainbow.addEventListener("click", () => {
     rainbow.value = "off";
   } else {
     rainbow.value = "on";
+    black.value = "off";
     canvas.addEventListener("mouseover", (event) => {
       event.target.style.backgroundColor = randomColor();
     })
