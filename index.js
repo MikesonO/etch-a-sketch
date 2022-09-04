@@ -37,26 +37,22 @@ gridSize.addEventListener("mousemove", () => {
 
 //Draws on canvas
 canvas.addEventListener("mouseover", (event) => {
-  if (colorPick.value == "#000000") {
-    event.target.style.backgroundColor = "black";
-  } else if (colorPick.value !== "#000000") {
-    event.target.style.backgroundColor = `${colorPick.value}`
-  }
-});
+  event.target.style.backgroundColor = "black";
+})
 
 //Black Button
 black.addEventListener("click", ()=> {
-  if (black.value == "on") {
-    black.value = "off";
-  } else {
-    black.value = "on";
-    rainbow.value = "off";
     canvas.addEventListener("mouseover", (event) => {
       event.target.style.backgroundColor = "black";
     })
-  }
-})
+  })
 
+//Color Button
+colorPick.addEventListener("input", ()=> {
+    canvas.addEventListener("mouseover", (event) => {
+      event.target.style.backgroundColor = `${colorPick.value}`;
+  })
+})
 
 //Random Color Geneator - for Rainbow Button
 randomColor = () => {
@@ -66,16 +62,11 @@ randomColor = () => {
 
 //Rainbow Button
 rainbow.addEventListener("click", () => {
-  if (rainbow.value == "on") {
-    rainbow.value = "off";
-  } else {
-    rainbow.value = "on";
-    black.value = "off";
     canvas.addEventListener("mouseover", (event) => {
       event.target.style.backgroundColor = randomColor();
     })
-  }
-})
+  })
+
 
 //Reset function - goes back to default settings
 reset.addEventListener("click", () => {
@@ -85,6 +76,7 @@ reset.addEventListener("click", () => {
   gridInfo.textContent = "16x16";
   gridSize.value = 16;
   colorPick.value = "#000000";
+  black.click();
   createGrid();
 })
 
