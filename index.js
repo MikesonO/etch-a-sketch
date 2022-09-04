@@ -1,10 +1,9 @@
 //Variables
 const canvas = document.querySelector("#canvas");
-const pixels = document.querySelector("div#canvas");
 let gridSize = document.querySelector("#gridSize");
 let reset = document.querySelector("#reset");
 let gridInfo = document.querySelector(".gridInfo");
-let colorChanger = document.querySelector(".color-changer");
+let colorPick = document.querySelector(".color-pick");
 
 
 createGrid = () => {
@@ -30,14 +29,17 @@ changeGrid = () => {
 
 //Specifies Grid Size based on range input
 gridSize.addEventListener("mousemove", () => {
-  gridInfo.textContent = `${gridSize.value}x${gridSize.value}`
+  gridInfo.textContent = `${gridSize.value}x${gridSize.value}`;
   changeGrid();
 });
 
 //Draws on canvas
-pixels.addEventListener("mouseover", (event) => {
-  event.target.classList.replace("pixels", "color");
-  changeColor();
+canvas.addEventListener("mouseover", (event) => {
+  if(colorPick.value == "#000000"){
+  event.target.style.backgroundColor = "black";
+} else if (colorPick.value !== "#000000"){
+  event.target.style.backgroundColor = `${colorPick.value}`
+}
 });
 
 
@@ -48,15 +50,8 @@ reset.addEventListener("click", () => {
   canvas.style.setProperty("grid-template-columns", "repeat(16, 2fr)");
   gridInfo.textContent = "16x16";
   gridSize.value = 16;
+  colorPick.value = "#000000";
   createGrid();
 })
-
-let pixelColor = document.querySelector("#canvas > div.color")
-
-changeColor = () => {
-colorChanger.addEventListener("change", () =>{
-  pixelColor.style.setProperty("background-color",`${colorChanger.value}`);
-})
-}
 
 createGrid();
