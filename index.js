@@ -6,6 +6,7 @@ let gridInfo = document.querySelector(".gridInfo");
 let black = document.querySelector(".black")
 let colorPick = document.querySelector(".color-pick");
 let rainbow = document.querySelector(".rainbow");
+let eraser = document.querySelector(".eraser");
 
 
 createGrid = () => {
@@ -64,6 +65,13 @@ randomColor = () => {
 rainbow.addEventListener("click", () => {
     canvas.addEventListener("mouseover", (event) => {
       event.target.style.backgroundColor = randomColor();
+    })
+  })
+
+  //Eraser Button
+  eraser.addEventListener("click", () => {
+    canvas.addEventListener("mouseover", (event) => {
+      event.target.removeAttribute("style");
     })
   })
 
