@@ -31,7 +31,7 @@ changeGrid = () => {
 };
 
 //Specifies Grid Size based on range input
-gridSize.addEventListener("mousemove", () => {
+gridSize.addEventListener("input", () => {
   gridInfo.textContent = `${gridSize.value}x${gridSize.value}`;
   changeGrid();
 });
