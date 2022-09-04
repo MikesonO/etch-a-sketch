@@ -36,17 +36,29 @@ gridSize.addEventListener("mousemove", () => {
 
 //Draws on canvas
 canvas.addEventListener("mouseover", (event) => {
-  if(colorPick.value == "#000000"){
-  event.target.style.backgroundColor = "black";
-} else if (colorPick.value !== "#000000"){
-  event.target.style.backgroundColor = `${colorPick.value}`
-}
+  if (colorPick.value == "#000000") {
+    event.target.style.backgroundColor = "black";
+  } else if (colorPick.value !== "#000000") {
+    event.target.style.backgroundColor = `${colorPick.value}`
+  }
 });
 
 randomColor = () => {
-  let rainbow = Math.floor(Math.random()*16777215).toString(16);
+  let rainbow = Math.floor(Math.random() * 16777215).toString(16);
   return `#${rainbow}`;
 }
+
+//Rainbow Button
+rainbow.addEventListener("click", () => {
+  if (rainbow.value == "on") {
+    rainbow.value = "off";
+  } else {
+    rainbow.value = "on";
+    canvas.addEventListener("mouseover", (event) => {
+      event.target.style.backgroundColor = randomColor();
+    })
+  }
+})
 
 //Reset function - goes back to default settings
 reset.addEventListener("click", () => {
