@@ -38,6 +38,7 @@ footer {
   border-radius: 50px;
   width: 25px;
   height: 25px;
+  cursor: pointer;
   transition: 0.5s;
 }
 .color-pick::-webkit-color-swatch {
@@ -58,13 +59,17 @@ footer {
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.25s;
 }
 
 .btn:hover,
 .color-pick:hover {
   scale: 1.25;
   z-index:2;
+}
+
+.btn:active{
+  scale: 1.20;
 }
 
 .black{
@@ -93,7 +98,15 @@ footer {
 
 .eraser{
   border: 2px solid #000;
+  background-size: 200%;
+  background-position: 0%;
 }
+
+.eraser:hover {
+  box-shadow: inset 400px 0 0 0 #fff;
+  color: #fff;
+}
+
 /* ID SELECTORS */
 
 #etch-a-sketch {
