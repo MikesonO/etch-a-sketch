@@ -4,6 +4,7 @@ const pixels = document.querySelector("div#canvas");
 let gridSize = document.querySelector("#gridSize");
 let reset = document.querySelector("#reset");
 let gridInfo = document.querySelector(".gridInfo");
+let colorChanger = document.querySelector(".color-changer");
 
 
 createGrid = () => {
@@ -28,7 +29,7 @@ changeGrid = () => {
 };
 
 //Specifies Grid Size based on range input
-gridSize.addEventListener("change", () => {
+gridSize.addEventListener("mousemove", () => {
   gridInfo.textContent = `${gridSize.value}x${gridSize.value}`
   changeGrid();
 });
@@ -36,6 +37,7 @@ gridSize.addEventListener("change", () => {
 //Draws on canvas
 pixels.addEventListener("mouseover", (event) => {
   event.target.classList.replace("pixels", "color");
+  changeColor();
 });
 
 
@@ -49,6 +51,12 @@ reset.addEventListener("click", () => {
   createGrid();
 })
 
+let pixelColor = document.querySelector("#canvas > div.color")
 
+changeColor = () => {
+colorChanger.addEventListener("change", () =>{
+  pixelColor.style.setProperty("background-color",`${colorChanger.value}`);
+})
+}
 
 createGrid();
