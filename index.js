@@ -57,8 +57,8 @@ colorPick.addEventListener("input", ()=> {
 
 //Random Color Geneator - for Rainbow Button
 randomColor = () => {
-  let rainbow = Math.floor(Math.random() * 16777215).toString(16);
-  return `#${rainbow}`;
+  let rainbow = `hsl(${Math.random()*360},100%,50%)`;
+  return `${rainbow}`;
 }
 
 //Rainbow Button
