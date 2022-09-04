@@ -4,6 +4,7 @@ let gridSize = document.querySelector("#gridSize");
 let reset = document.querySelector("#reset");
 let gridInfo = document.querySelector(".gridInfo");
 let colorPick = document.querySelector(".color-pick");
+let rainbow = document.querySelector(".rainbow");
 
 
 createGrid = () => {
@@ -42,6 +43,10 @@ canvas.addEventListener("mouseover", (event) => {
 }
 });
 
+randomColor = () => {
+  let rainbow = Math.floor(Math.random()*16777215).toString(16);
+  return `#${rainbow}`;
+}
 
 //Reset function - goes back to default settings
 reset.addEventListener("click", () => {
