@@ -11,6 +11,8 @@
 
 body{
   font-family: 'Quicksand', sans-serif;
+  text-align: center;
+  background-image: linear-gradient(#EEEEEE, #bbbbbb);
 }
 
 header,
@@ -19,7 +21,20 @@ footer {
   padding: 0.75rem;
 }
 
+footer a{
+  text-decoration: none;
+  transition: 0.25s;
+  color: #000;
+}
 
+footer a:hover{
+  font-weight: bold;
+  scale: 1.25;
+}
+
+footer a:active{
+  scale: 0.75;
+}
 
 /* CLASS SELECTORS */
 .pixels {
@@ -27,11 +42,6 @@ footer {
   border: 1px solid #ccc;
 }
 
-.title,
-.copyright {
-  display: block;
-  text-align: center;
-}
 
 .slider{
   width: 500px;
@@ -106,6 +116,7 @@ footer {
   border: 2px solid #000;
   background-size: 200%;
   background-position: 0%;
+  background-color: #fff;
 }
 
 .eraser:hover {
@@ -118,7 +129,7 @@ footer {
 #etch-a-sketch {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   justify-content: center;
   align-items: center;
 }
@@ -129,7 +140,9 @@ footer {
   border: 2.5px solid black;
   display: flex;
   align-items: center;
-  justify-content:space-around
+  justify-content: space-around;
+  background-color: #bbbbbb;
+  box-shadow: 7px 7px 10px 0px rgba(0,0,0,0.75);
 }
 
 #slider{
@@ -152,4 +165,5 @@ footer {
   border: 2.5px solid black;
   height: 500px;
   width: 500px;
+  box-shadow: 7px 7px 10px 0px rgba(0,0,0,0.75);
 }
