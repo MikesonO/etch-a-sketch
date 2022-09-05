@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 /* ELEMENT SELECTORS */
 *,
 *::after,
@@ -7,10 +9,14 @@
   box-sizing: border-box;
 }
 
+body{
+  font-family: 'Quicksand', sans-serif;
+}
+
 header,
 footer {
-  margin: 1rem 0;
-  padding: 1rem;
+  margin: 0.75rem 0;
+  padding: 0.75rem;
 }
 
 
@@ -124,6 +130,18 @@ footer {
   display: flex;
   align-items: center;
   justify-content:space-around
+}
+
+#slider{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.gridInfo{
+  font-weight: bold;
 }
 
 
