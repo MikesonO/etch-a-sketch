@@ -50,7 +50,7 @@ canvas.addEventListener('mouseup', (event) => {
 
 //Drawing Function
 drawing = (color) =>{
-  canvas.addEventListener("mousemove", (event) => {
+  canvas.addEventListener("mouseover", (event) => {
     if (mouseDown) { 
       event.target.style.backgroundColor = `${color}`;
       }
@@ -81,7 +81,7 @@ randomColor = () => {
 
 //Rainbow Button
 rainbow.addEventListener("click", () => {
-    canvas.addEventListener("mousemove", (event) => {
+    canvas.addEventListener("mouseover", (event) => {
       if (mouseDown) { 
       event.target.style.backgroundColor = randomColor();
       }
@@ -95,7 +95,7 @@ rainbow.addEventListener("click", () => {
 
   //Eraser Button
   eraser.addEventListener("click", () => {
-    canvas.addEventListener("mousemove", (event) => {
+    canvas.addEventListener("mouseover", (event) => {
       if (mouseDown) { 
       event.target.style.removeProperty("background-color");
       }
