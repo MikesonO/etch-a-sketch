@@ -36,24 +36,42 @@ gridSize.addEventListener("input", () => {
   changeGrid();
 });
 
-//Draws on canvas
-canvas.addEventListener("mouseover", (event) => {
-  event.target.style.backgroundColor = "black";
-})
+let mouseDown = false;
+let mouseUp = true;
+
+canvas.addEventListener('mousedown', (event) => {
+  mouseDown = !mouseDown; // toggle mouseDown true/false;      
+});
+
+canvas.addEventListener('mouseup', (event) => {
+  mouseDown = !mouseDown; // toggle mouseDown true/false;
+});
+
+
+//Drawing Function
+drawing = (color) =>{
+  canvas.addEventListener("mousemove", (event) => {
+    if (mouseDown) { 
+      event.target.style.backgroundColor = `${color}`;
+      }
+    })
+    canvas.addEventListener("mousedown", (event) => {
+      if (mouseDown) { 
+        event.target.style.backgroundColor = `${color}`; 
+      }
+    })
+}
+
 
 //Black Button
 black.addEventListener("click", ()=> {
-    canvas.addEventListener("mouseover", (event) => {
-      event.target.style.backgroundColor = "black";
-    })
-  })
-
+  drawing("black");
+})
+  
 //Color Button
 colorPick.addEventListener("input", ()=> {
-    canvas.addEventListener("mouseover", (event) => {
-      event.target.style.backgroundColor = `${colorPick.value}`;
+      drawing(colorPick.value);
   })
-})
 
 //Random Color Geneator - for Rainbow Button
 randomColor = () => {
@@ -63,21 +81,37 @@ randomColor = () => {
 
 //Rainbow Button
 rainbow.addEventListener("click", () => {
-    canvas.addEventListener("mouseover", (event) => {
+    canvas.addEventListener("mousemove", (event) => {
+      if (mouseDown) { 
       event.target.style.backgroundColor = randomColor();
+      }
+    })
+    canvas.addEventListener("mousedown", (event) => {
+      if (mouseDown) { 
+      event.target.style.backgroundColor = randomColor();
+      }
     })
   })
 
   //Eraser Button
   eraser.addEventListener("click", () => {
-    canvas.addEventListener("mouseover", (event) => {
+    canvas.addEventListener("mousemove", (event) => {
+      if (mouseDown) { 
       event.target.style.removeProperty("background-color");
+      }
+    })
+    canvas.addEventListener("mousedown", (event) => {
+      if (mouseDown) { 
+      event.target.style.removeProperty("background-color");
+      }
     })
   })
 
 
 //Reset function - goes back to default settings
 reset.addEventListener("click", () => {
+  mouseDown = false;
+  mouseUp = true;
   canvas.innerHTML = "";
   canvas.style.setProperty("grid-template-rows", "repeat(16, 2fr)");
   canvas.style.setProperty("grid-template-columns", "repeat(16, 2fr)");
